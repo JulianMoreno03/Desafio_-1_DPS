@@ -1,0 +1,28 @@
+.article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.texto{
+    margin: 10px;
+    text-decoration:solid;
+    font-size: 1.5rem;
+}
+.select{
+    padding: 8px;
+    border: none;
+    border-bottom: 3px solid #09791a;
+    outline: none;
+    display: inline;
+}
+.button{
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
