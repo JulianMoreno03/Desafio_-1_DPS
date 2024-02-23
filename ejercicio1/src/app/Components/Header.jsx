@@ -1,12 +1,12 @@
-import { AddElement } from "./addElement"
+import { List } from "./List";
+import css from "./css/Header.css";
 
 export const Header =()=>{
     return (
-
-        <header>
-            <h1>Lista de Peliculas Disponibles</h1>
-        <AddElement ></AddElement>
-         </header>
-
+       <header>
+        <h1 className="title">Lista de peliculas disponibles </h1>
+        <List></List>
+       </header>
     )
+
 }
