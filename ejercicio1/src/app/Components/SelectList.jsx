@@ -7,15 +7,27 @@ export const SelectList =({List,setList}) =>{
 
   const [quantityInputs, setQuantityInputs] = useState({});
 
+  //Toda esta funcion nos va a servir para que al momento de que el usuario ponga otra cantidad
+  //se va actualizar la cantidad 
+  // se va a multiplicar por el precio
+  // y se va a actualizar el precio
+  //y luego se va a mostrar todo actualizado
   const handleQuantityChange = (movieId, e) => {
-    const newQuantityInputs = { ...quantityInputs, [movieId]: parseInt(e.target.value, 10) || 0 };
+    const newQuantityInputs = { ...quantityInputs, [movieId]: parseInt(e.target.value, 10) || 1 };
+
+    // Validación para asegurar que la cantidad esté entre 0 y 10
+  if (newQuantityInputs[movieId] <= 1) {
+    newQuantityInputs[movieId] = 1;
+  } else if (newQuantityInputs[movieId] > 10) {
+    newQuantityInputs[movieId] = 10;
+  } 
+  
     setQuantityInputs(newQuantityInputs);
 
     const updatedList = List.map((movie) => {
       if (movie.id === movieId) {
-
-        const newQuantity = newQuantityInputs[movieId] || 1;     
-        const totalPrice = newQuantity <= 1 ? movie.price * newQuantity : movie.price * newQuantity;
+        const newQuantity = newQuantityInputs[movieId] || 0;     
+        const totalPrice = newQuantity <= 0 ? movie.price : movie.price * newQuantity;
 
         return { ...movie, quantity: newQuantity, totalPrice: totalPrice };
       }
@@ -24,6 +36,16 @@ export const SelectList =({List,setList}) =>{
 
     setList(updatedList);
   };
+
+  //Funcion para eliminar la pelicula atravez de su id
+  const handleRemoveMovie = (movieId) => {
+    const updatedList = List.filter((movie) => movie.id !== movieId);
+    setList(updatedList);
+  };
+
+  //Calcula el total a pagar
+  const totalAmount = List.reduce((total, movie) => total + movie.totalPrice, 0);
+
 
      // Verificar si hay un objeto seleccionado
   if (!List || List.length === 0) {
@@ -44,7 +66,7 @@ export const SelectList =({List,setList}) =>{
           <img src={movie.urlImage} alt="{imagen de {movie.name}}" className="img" />
         </figure>
       <div>
-      <label htmlFor={`quantityInput-${movie.id}`}>Cantidad:</label>
+      <label htmlFor={`quantityInput${movie.id}`}>Cantidad:</label>
          <input
                 type="number"
                 id={`quantityInput-${movie.id}`}
@@ -52,9 +74,14 @@ export const SelectList =({List,setList}) =>{
                 value={quantityInputs[movie.id] || 1}
                 onChange={(e) => handleQuantityChange(movie.id, e)} />
       </div>
+      <button onClick={() => handleRemoveMovie(movie.id)} className="btnDelete">X</button>
     </div>
+    
       </section>
     ))}
+     <div className="TotalPago">
+      <p>Total a Pagar: ${totalAmount.toFixed(2)}</p>
+    </div>
   </article>
   );
 }
