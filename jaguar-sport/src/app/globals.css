@@ -1,0 +1,154 @@
+
+
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 900px; 
+  margin-top: 50px;
+}
+
+.product {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #f2b7b7;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: rgb(199, 199, 199);
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-details {
+  padding: 15px;
+}
+
+.product-name {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.product-description {
+  margin-bottom: 10px;
+  width: 150px;
+  font-size: 13px;
+}
+
+.product-price {
+  margin: 0;
+}
+
+.add-to-cart {
+  background-color: #484848;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+.product-image{
+  width: 250px;
+}
+
+.container-header{
+  margin-top: auto;
+}
+
+.btn-mostrar{
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.container-header {
+  background-color: #808080;
+  color: #fff;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.brand-header {
+  flex: 1; 
+}
+
+.brand-name {
+  margin: 0;
+}
+
+.cart-button-container {
+  flex: 0; 
+}
+
+.btn-mostrar {
+  background-color: #7e23f480;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-mostrar:hover {
+
+  background-color: #7f5a9f
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+}
+
+.cart-sidebar {
+  flex: 0 0 200px; 
+  background-color: #636363;
+  padding: 20px;
+  border-left: 1px solid #fff99e;
+  overflow-y: auto; 
+  font-size: 10;
+}
+
+.cart {
+  margin-bottom: 20px;
+}
+
+.cart h2 {
+  margin-top: 0;
+}
+
+.btn-eliminar{
+  background-color: #c18bf1;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
